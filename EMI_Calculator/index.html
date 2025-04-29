@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+</head>
+    
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <div class="name">
+            <h1>My Calculator</h1>
+            </div>
+            <div class="content" id="LoanAmt">`
+                
+                  <input type="number"placeholder="Loan Amount" value="">
+            </div>
+            <div class="content" id="Rate">
+                
+                  <input type="number"placeholder="Intrest Rate"value="" >
+            </div>
+            <div class="content" id="time">
+                
+                  <input type="number"placeholder="Time Duration" value="">
+            </div>
+            <div class="content">
+                <button id="btn"><h3>Calculate</h3></button>
+            </div>
+            <div class="chart">
+                <div class="name">
+                    <h2>Result</h2>
+                    </div>
+                <div class="content1">`
+                   <div class="monthly" id="Mpay">
+                    <input type="number"placeholder="Monthly Payment" value="">
+                </div>
+                <div class="content1">`
+                    <div class="monthly" id="Tpay">
+                     <input type="number"placeholder="Total Payment" value="">
+                 </div>
+                 <div class="content1">`
+                    <div class="monthly" id="Tin">
+                     <input type="number"placeholder="Total Intrest" value="">
+                 </div>
+                    
+              </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+    // Get input values
+    const loanAmount = parseFloat(document.querySelector('#LoanAmt input').value);
+    const annualRate = parseFloat(document.querySelector('#Rate input').value);
+    const timeDuration = parseFloat(document.querySelector('#time input').value);
+
+
+
+    const monthlyRate = annualRate / 12 / 100;
+    const months = timeDuration * 12;
+
+    // Calculate Monthly Payment using the formula: M = P[r(1+r)^n]/[(1+r)^n - 1]
+    const numerator = monthlyRate * Math.pow(1 + monthlyRate, months);
+    const denominator = Math.pow(1 + monthlyRate, months) - 1;
+    const monthlyPayment = loanAmount * (numerator / denominator);
+
+
+    // Calculate Total Payment and Total Interest
+    const totalPayment = monthlyPayment * months;
+    const totalInterest = totalPayment - loanAmount;
+ 
+
+    
+    
+    
+ //   const totalInterest=(loanAmount*annualRate*timeDuration*12)/100;
+  //  const totalPayment=loanAmount+totalInterest;
+   // const monthlyPayment=totalPayment/(timeDuration*12);
+
+    // Display the results
+    document.querySelector('#Mpay input').value = monthlyPayment.toFixed(2);
+    document.querySelector('#Tpay input').value = totalPayment.toFixed(2);
+    document.querySelector('#Tin input').value = totalInterest.toFixed(2);
+
+    // Make the chart division visible
+    document.querySelector('.chart').style.display = 'block';
+});
+
+// Initially hide the chart division
+document.querySelector('.chart').style.display = 'none';
+    </script>
+    
+</body>
+</html>

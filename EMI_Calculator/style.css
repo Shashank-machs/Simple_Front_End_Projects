@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: darkgrey;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    display: flex;
+    min-height: 60vh;
+    padding-top: 10%;
+}
+.heading{
+    text-align: center;
+    width: 400px;
+    height: auto;
+    align-items: center;
+    background-color:white;
+    
+    border-radius: 6px;
+    padding-top:1mm;
+    padding-bottom: 1mm;  
+}
+.content{
+    
+    
+   
+    padding-bottom: 30px;
+    
+    
+}
+.content input{
+    width:300px;
+    height:35px;
+    border-radius: 3px;
+    border: 1.5px solid black;
+}
+.name{
+    text-align: center;
+    padding-top:1mm;
+    padding-bottom: 1mm;  
+}
+
+.content button{
+    
+   width: 300px;
+}
+.chart{
+float:initial;
+
+}
+.content1{
+    padding-bottom: 20px;
+}
+
+.content1 input{
+    width:300px;
+    height:35px;
+    border-radius: 3px;
+    border: 1.5px solid black;
+}
+.chart{
+    
+}
